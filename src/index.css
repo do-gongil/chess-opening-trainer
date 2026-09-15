@@ -1,0 +1,68 @@
+:root {
+  font: 15px/1.5 system-ui, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  color: #222;
+  background: #f5f5f2;
+}
+body { margin: 0; }
+h1 { font-size: 20px; margin: 0; }
+h2 { font-size: 16px; margin: 0 0 6px; }
+h3 { font-size: 13px; margin: 10px 0 4px; color: #666; text-transform: uppercase; letter-spacing: 0.04em; }
+p { margin: 0 0 6px; }
+button, .btn, input, select, textarea { font: inherit; }
+button, .btn {
+  cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 4px; padding: 3px 10px;
+}
+button:hover, .btn:hover { background: #eee; }
+button.sel { background: #2b5797; color: #fff; border-color: #2b5797; }
+input:not([type=checkbox]), select, textarea { width: 100%; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; padding: 4px 6px; margin-bottom: 6px; }
+textarea { min-height: 90px; resize: vertical; }
+.dim { color: #888; }
+.row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.notice { color: #b3261e; }
+
+.app {
+  display: grid;
+  grid-template-columns: 230px minmax(320px, 560px) minmax(300px, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  height: 100vh;
+  padding: 12px;
+  box-sizing: border-box;
+}
+header { grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; }
+.tabs { display: flex; gap: 4px; }
+.left, .right { overflow: auto; min-height: 0; }
+main { min-width: 0; }
+main.wide { grid-column: 2 / -1; }
+.board-wrap { width: 100%; max-width: 560px; }
+.panel { background: #fff; border: 1px solid #e2e2e2; border-radius: 6px; padding: 10px 12px; margin-bottom: 10px; }
+
+/* 오프닝 목록 */
+.openings .cat { margin-bottom: 4px; }
+.opening { display: flex; align-items: center; gap: 4px; margin: 2px 0; }
+.opening > button:first-child { flex: 1; text-align: left; border: none; background: none; padding: 3px 8px; border-radius: 4px; }
+.opening.sel > button:first-child { background: #dbe7f7; font-weight: 600; }
+.opening .x { padding: 0 7px; color: #999; border: none; background: none; }
+.opening .x:hover { color: #b3261e; }
+.new { margin-top: 12px; padding-top: 8px; border-top: 1px solid #ddd; }
+.tools { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+
+/* 수 트리 */
+.tree { line-height: 1.9; }
+.tree .move { border: none; background: none; padding: 0 4px; border-radius: 3px; font-family: ui-monospace, Consolas, monospace; font-size: 14px; }
+.tree .move:hover { background: #eee; }
+.tree .move.sel { background: #ffe58a; }
+.tree .vars { margin-left: 1em; padding-left: 8px; border-left: 2px solid #ddd; font-size: 13px; color: #555; }
+.tree .var { margin: 2px 0; }
+.tag { font-size: 11px; font-weight: 600; color: #2b5797; margin-left: 4px; }
+
+/* 엔진 */
+.score { font-size: 18px; }
+.pv { font-family: ui-monospace, Consolas, monospace; font-size: 13px; word-break: break-word; }
+
+/* 훈련 */
+.drill { display: grid; grid-template-columns: minmax(320px, 560px) minmax(260px, 1fr); gap: 12px; }
+
+/* 관련 오프닝 칩 */
+.chip { font-size: 13px; padding: 2px 8px; border-radius: 12px; background: #eef3fa; border-color: #c9d8ee; }
+.chip:hover { background: #dbe7f7; }
