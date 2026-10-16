@@ -36,10 +36,6 @@ public/engine/stockfish-18-lite-single.wasm
 - 구조: `Library { version: 1, openings: Opening[] }`, `Opening { id, color, category, name, description, root, nodes }`, `MoveNode { id, parent, san, fen, comment, children }`. `children[0]`이 메인 라인.
 - 시드 추가: `seed.ts`의 `lines`에 SAN 라인을 공백 구분 문자열로 넣는다. 첫 줄이 메인, 나머지는 공통 접두어에서 분기. 불법 수는 `npm test`에서 잡힌다.
 
-## 의도적 단순화 (ponytail)
-
-전위(transposition) 미지원 · 승격은 항상 퀸 · 드래그 착수만 · 간격 반복 없음 · 삭제 취소 없음(내보내기로 백업).
-
 ## 관련 오프닝 연결
 
 오프닝 시작 국면(루트) 패널에 **대응하는 흑 디펜스·갬빗** / **맞서는 백 시스템·오프닝·갬빗** 칩이 표시된다. 시드의 `related` 배열(오프닝 이름)에서 오며 한쪽에만 적혀 있어도 양방향으로 보인다. 편집 모드에서 쉼표 구분으로 직접 수정할 수 있다. 시드 구성은 chess.com "Learn the Openings" 코스의 50개 레슨을 가족별로 묶은 것(백 18, 흑 24).
