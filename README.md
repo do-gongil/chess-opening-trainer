@@ -2,25 +2,38 @@
 
 백/흑 → 시스템·오프닝·어택 / 디펜스·시스템·카운터 → 오프닝 → 수 트리 구조로 이론 수와 변형을 학습하는 개인용 웹.
 
-## 실행
+## 설치 · 실행
 
-```
+Node.js 22.12 이상이 필요합니다 (Vite 8 · Vitest 5 요구사항).
+
+```bash
+git clone https://github.com/do-gongil/chess-opening-trainer.git
+cd chess-opening-trainer
 npm install
 npm run dev      # http://localhost:5173
+```
+
+```bash
 npm test         # vitest (model 순수 함수 + 시드 합법성)
+npm run lint     # oxlint
 npm run build    # dist/ 정적 배포물
 ```
 
-## Setup — 엔진 배치
+## 엔진 배치 (선택)
 
-엔진 분석 기능은 Stockfish 18 lite (단일 스레드 WASM) 를 쓰는데,
-GPLv3 바이너리라 이 저장소에 포함하지 않았습니다. 직접 내려받아 배치하세요.
+엔진 분석 기능은 Stockfish 18 lite (단일 스레드 WASM) 를 씁니다.
+GPLv3 바이너리라 이 저장소에 포함하지 않았으므로, npm 의 [`stockfish`](https://www.npmjs.com/package/stockfish)
+패키지에서 두 파일을 꺼내 `public/engine/` 에 둡니다 (저장소 루트에서, bash / Git Bash):
 
+```bash
+npm pack stockfish@18.0.8
+tar -xzf stockfish-18.0.8.tgz package/bin/stockfish-18-lite-single.js package/bin/stockfish-18-lite-single.wasm
+mkdir -p public/engine
+mv package/bin/stockfish-18-lite-single.* public/engine/
+rm -r package stockfish-18.0.8.tgz
 ```
-public/engine/stockfish-18-lite-single.js
-public/engine/stockfish-18-lite-single.wasm
-```
 
+`public/engine/` 은 `.gitignore` 에 들어 있어 커밋되지 않습니다.
 두 파일이 없어도 앱은 정상 동작합니다. 엔진 체크박스만 비활성 상태가 됩니다.
 
 ## 모드
