@@ -1,4 +1,4 @@
-import { COLOR_LABEL } from '../model/categories'
+import { useI18n } from '../i18n'
 import { useLibrary } from '../model/store'
 import { deleteSubtree, promoteToMain, setComment } from '../model/tree'
 import type { Opening } from '../model/types'
@@ -20,6 +20,8 @@ function relatedOf(op: Opening, all: Opening[]) {
 
 export function CommentPanel({ op, nodeId, editing, onChange, onSelect, onSelectOpening }: Props) {
   const { lib } = useLibrary()
+  const i18n = useI18n()
+  const { m } = i18n
   const node = op.nodes[nodeId]
   const parent = node.parent ? op.nodes[node.parent] : null
   const isMain = !parent || parent.children[0] === nodeId
@@ -28,12 +30,12 @@ export function CommentPanel({ op, nodeId, editing, onChange, onSelect, onSelect
     const rel = relatedOf(op, lib.openings)
     const opposite = rel.filter((o) => o.color !== op.color)
     const same = rel.filter((o) => o.color === op.color)
-    const oppositeTitle = op.color === 'white' ? '대응하는 흑 디펜스·갬빗' : '맞서는 백 시스템·오프닝·갬빗'
+    const oppositeTitle = op.color === 'white' ? m.oppositeOfWhite : m.oppositeOfBlack
     const chips = (list: Opening[]) => (
       <div className="row">
         {list.map((o) => (
           <button key={o.id} className="chip" onClick={() => onSelectOpening(o.id)}>
-            {COLOR_LABEL[o.color]} · {o.name}
+            {m.color[o.color]} · {i18n.name(o)}
           </button>
         ))}
       </div>
@@ -42,18 +44,18 @@ export function CommentPanel({ op, nodeId, editing, onChange, onSelect, onSelect
       <section className="panel">
         {editing ? (
           <>
-            <input value={op.name} onChange={(e) => onChange({ ...op, name: e.target.value })} />
-            <textarea value={op.description} placeholder="오프닝 설명" onChange={(e) => onChange({ ...op, description: e.target.value })} />
+            <input value={i18n.name(op)} onChange={(e) => onChange({ ...op, name: e.target.value })} />
+            <textarea value={i18n.description(op)} placeholder={m.openingDescPlaceholder} onChange={(e) => onChange({ ...op, description: e.target.value })} />
             <input
               value={(op.related ?? []).join(', ')}
-              placeholder="관련 오프닝 이름 (쉼표 구분)"
+              placeholder={m.relatedPlaceholder}
               onChange={(e) => onChange({ ...op, related: e.target.value.split(',').map((s) => s.trim()).filter(Boolean) })}
             />
           </>
         ) : (
           <>
-            <h2>{op.name}</h2>
-            <p>{op.description || <span className="dim">설명 없음</span>}</p>
+            <h2>{i18n.name(op)}</h2>
+            <p>{i18n.description(op) || <span className="dim">{m.noDescription}</span>}</p>
           </>
         )}
         {opposite.length > 0 && (
@@ -64,7 +66,7 @@ export function CommentPanel({ op, nodeId, editing, onChange, onSelect, onSelect
         )}
         {same.length > 0 && (
           <>
-            <h3>같은 색 관련 오프닝</h3>
+            <h3>{m.sameColorRelated}</h3>
             {chips(same)}
           </>
         )}
@@ -75,24 +77,24 @@ export function CommentPanel({ op, nodeId, editing, onChange, onSelect, onSelect
   return (
     <section className="panel">
       <h2>
-        {node.san} <small className={isMain ? 'tag' : 'tag dim'}>{isMain ? '메인' : '변형'}</small>
+        {node.san} <small className={isMain ? 'tag' : 'tag dim'}>{isMain ? m.mainTag : m.variationTag}</small>
       </h2>
       {editing ? (
-        <textarea value={node.comment} placeholder="이 수에 대한 해설" onChange={(e) => onChange(setComment(op, nodeId, e.target.value))} />
+        <textarea value={i18n.comment(op, nodeId)} placeholder={m.commentPlaceholder} onChange={(e) => onChange(setComment(op, nodeId, e.target.value))} />
       ) : (
-        <p>{node.comment || <span className="dim">해설 없음</span>}</p>
+        <p>{i18n.comment(op, nodeId) || <span className="dim">{m.noComment}</span>}</p>
       )}
       {editing && (
         <div className="row">
-          {!isMain && <button onClick={() => onChange(promoteToMain(op, nodeId))}>메인으로</button>}
+          {!isMain && <button onClick={() => onChange(promoteToMain(op, nodeId))}>{m.promote}</button>}
           <button
             onClick={() => {
-              if (!confirm(`${node.san} 이하 변형을 모두 삭제할까요?`)) return
+              if (!confirm(m.confirmRemoveSubtree(node.san))) return
               onChange(deleteSubtree(op, nodeId))
               onSelect(parent.id)
             }}
           >
-            삭제
+            {m.remove}
           </button>
         </div>
       )}

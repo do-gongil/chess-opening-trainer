@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useI18n } from '../i18n'
 import { mainLine } from '../model/tree'
 import type { Color, Opening } from '../model/types'
 import { Board } from './Board'
@@ -15,6 +16,7 @@ interface Props {
 
 /** fromId 국면에서 시작해 메인 라인을 반복 재생하는 미니 보드 카드. 수순이 바뀌면 부모가 key로 0부터 다시 시작시킨다. */
 export function OpeningPreview({ op, fromId, orientation, onOpen }: Props) {
+  const i18n = useI18n()
   const ids = [fromId, ...mainLine(op, fromId)]
   const last = ids.length - 1
   const [step, setStep] = useState(0)
@@ -27,7 +29,7 @@ export function OpeningPreview({ op, fromId, orientation, onOpen }: Props) {
   const shown = ids[Math.min(step, last)]
   return (
     <button className="preview" onClick={onOpen}>
-      <strong>{op.name}</strong>
+      <strong>{i18n.name(op)}</strong>
       <span className="dim">{op.nodes[ids[1]].san}</span>
       <Board fen={op.nodes[shown].fen} orientation={orientation} />
       <span className="pv">{step >= 1 ? op.nodes[shown].san : ''}</span>

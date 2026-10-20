@@ -53,12 +53,14 @@ rm -r package stockfish-18.0.8.tgz
 - **편집**: 보드에서 수를 두면 트리에 추가. 해설 입력, 메인으로 승격, 서브트리 삭제, 오프닝 추가/삭제. 내보내기/가져오기(JSON), 시드 초기화.
 - **훈련**: 상대 수는 무작위 변형으로 자동, 내 차례에 이론 수 맞히기. 1차 오답은 출발 칸 힌트, 2차 오답은 정답 표시 후 진행.
 - **엔진**: 체크박스로 Stockfish 18 lite(단일 스레드 WASM, `public/engine/`) 분석. 평가는 항상 백 기준.
+- **언어**: 헤더 오른쪽 선택기로 한국어·English를 바꾼다. 선택은 `localStorage['chess-study.lang']`에 저장되고, 처음에는 브라우저 언어(ko, 그 외는 en)를 따른다. 화면 문구는 `src/i18n/messages.ts`, 시드 오프닝의 이름·설명·해설 번역은 `src/data/seed-i18n-en.ts`에 있다. 저장된 시드 원문을 직접 고치지 않은 필드만 번역되어 보이고, 직접 고친 값과 직접 만든 오프닝은 저장된 그대로 보인다.
 
 ## 데이터
 
 - 저장: `localStorage['chess-study.library']`. 첫 실행 시 `src/data/seed.ts` 적재.
 - 구조: `Library { version: 1, openings: Opening[] }`, `Opening { id, color, category, name, description, root, nodes }`, `MoveNode { id, parent, san, fen, comment, children }`. `children[0]`이 메인 라인.
 - 시드 추가: `seed.ts`의 `lines`에 SAN 라인을 공백 구분 문자열로 넣는다. 첫 줄이 메인, 나머지는 공통 접두어에서 분기. 불법 수는 `npm test`에서 잡힌다.
+- 시드 문구 번역: 시드의 한국어 `name`을 키로 `seed-i18n-en.ts`에 이름·설명·해설(수 경로 키)을 함께 넣는다. 빠지면 `npm test`가 잡는다.
 
 ## 관련 오프닝 연결
 

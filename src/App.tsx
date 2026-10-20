@@ -9,19 +9,17 @@ import { MoveTree } from './components/MoveTree'
 import { OpeningList } from './components/OpeningList'
 import { useEngine } from './engine/useEngine'
 import { useKeyNav } from './hooks/useKeyNav'
+import { useI18n } from './i18n'
+import { LANGS, type Lang } from './i18n/messages'
 import { useLibrary } from './model/store'
 import { addMove, START_FEN } from './model/tree'
 import type { Opening } from './model/types'
 
 type Mode = 'browse' | 'edit' | 'drill' | 'explore'
-const MODES: [Mode, string][] = [
-  ['explore', '오프닝'],
-  ['browse', '탐색'],
-  ['edit', '편집'],
-  ['drill', '훈련'],
-]
+const MODES: Mode[] = ['explore', 'browse', 'edit', 'drill']
 
 export default function App() {
+  const { m, lang, setLang } = useI18n()
   const { lib, dispatch } = useLibrary()
   const [openingId, setOpeningId] = useState(lib.openings[0]?.id ?? '')
   const [nodeId, setNodeId] = useState('')
@@ -61,7 +59,7 @@ export default function App() {
       return true
     }
     if (mode !== 'edit') {
-      setNotice(`${san}은(는) 이론에 없는 수입니다. 편집 모드에서 추가할 수 있습니다.`)
+      setNotice(m.notInTheory(san))
       return false
     }
     const r = addMove(op, node.id, san)
@@ -73,14 +71,21 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <h1>체스 오프닝 학습</h1>
+        <h1>{m.title}</h1>
         <nav className="tabs">
-          {MODES.map(([m, label]) => (
-            <button key={m} className={mode === m ? 'sel' : ''} onClick={() => setMode(m)}>
-              {label}
+          {MODES.map((md) => (
+            <button key={md} className={mode === md ? 'sel' : ''} onClick={() => setMode(md)}>
+              {m.modes[md]}
             </button>
           ))}
         </nav>
+        <select className="lang" aria-label={m.language} value={lang} onChange={(e) => setLang(e.target.value as Lang)}>
+          {LANGS.map(([l, label]) => (
+            <option key={l} value={l}>
+              {label}
+            </option>
+          ))}
+        </select>
       </header>
       <aside className="left">
         <OpeningList
@@ -102,7 +107,7 @@ export default function App() {
           }}
         />
       ) : !op || !node ? (
-        <main className="wide dim">편집 모드에서 오프닝을 추가하세요.</main>
+        <main className="wide dim">{m.addOpeningHint}</main>
       ) : mode === 'drill' ? (
         <main className="wide">
           <Drill
@@ -121,7 +126,10 @@ export default function App() {
               <Board fen={fen} orientation={op.color} onMove={onMove} />
             </div>
             {notice && <p className="notice">{notice}</p>}
-            <p className="dim">← → 메인 라인 이동, ↑ ↓ 변형 전환{mode === 'edit' && ' · 보드에서 수를 두면 트리에 추가됩니다'}</p>
+            <p className="dim">
+              {m.navHint}
+              {mode === 'edit' && m.editHint}
+            </p>
           </main>
           <aside className="right">
             <MoveTree op={op} selected={node.id} onSelect={go} />

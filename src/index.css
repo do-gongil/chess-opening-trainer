@@ -31,6 +31,8 @@ textarea { min-height: 90px; resize: vertical; }
 }
 header { grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; }
 .tabs { display: flex; gap: 4px; }
+.lang { width: auto; margin: 0 0 0 auto; }
+header h1 { white-space: nowrap; }
 .left, .right { overflow: auto; min-height: 0; }
 main { min-width: 0; }
 main.wide { grid-column: 2 / -1; }

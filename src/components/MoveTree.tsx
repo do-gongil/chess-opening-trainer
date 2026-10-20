@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
+import { useI18n } from '../i18n'
 import type { MoveNode, Opening } from '../model/types'
 
 interface Props {
@@ -49,13 +50,14 @@ function Line({ op, startId, selected, onSelect }: Props & { startId: string }) 
 }
 
 export function MoveTree(props: Props) {
+  const { m } = useI18n()
   useEffect(() => {
     document.querySelector('.tree .move.sel')?.scrollIntoView({ block: 'nearest' })
   }, [props.selected])
   const empty = props.op.nodes[props.op.root].children.length === 0
   return (
     <section className="panel tree">
-      {empty ? <p className="dim">아직 수가 없습니다. 편집 모드에서 보드에 수를 두면 추가됩니다.</p> : <Line {...props} startId={props.op.root} />}
+      {empty ? <p className="dim">{m.emptyTree}</p> : <Line {...props} startId={props.op.root} />}
     </section>
   )
 }

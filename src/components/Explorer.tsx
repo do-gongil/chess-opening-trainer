@@ -1,6 +1,7 @@
 import { Chess } from 'chess.js'
 import { useMemo, useState } from 'react'
-import { COLORS, COLOR_LABEL } from '../model/categories'
+import { useI18n } from '../i18n'
+import { COLORS } from '../model/categories'
 import { openingsFrom } from '../model/tree'
 import type { Color, Opening } from '../model/types'
 import { Board } from './Board'
@@ -13,6 +14,7 @@ interface Props {
 
 /** 보드에서 양쪽 수를 직접 두면, 그 수순으로 이어지는 선택한 색의 오프닝이 미니 보드 카드로 나타난다. */
 export function Explorer({ openings, onOpen }: Props) {
+  const { m } = useI18n()
   const [color, setColor] = useState<Color>('white')
   const [sans, setSans] = useState<string[]>([])
 
@@ -23,7 +25,7 @@ export function Explorer({ openings, onOpen }: Props) {
   }, [sans])
   const matches = openingsFrom(openings, color, sans)
   const side: Color = sans.length % 2 === 0 ? 'white' : 'black' // 지금 둘 차례
-  const moves = [...new Set(matches.flatMap((m) => m.op.nodes[m.nodeId].children.map((c) => m.op.nodes[c].san)))]
+  const moves = [...new Set(matches.flatMap((x) => x.op.nodes[x.nodeId].children.map((c) => x.op.nodes[c].san)))]
 
   const onMove = (from: string, to: string) => {
     try {
@@ -44,39 +46,39 @@ export function Explorer({ openings, onOpen }: Props) {
         <div className="row">
           {COLORS.map((c) => (
             <button key={c} className={color === c ? 'sel' : ''} onClick={() => setColor(c)}>
-              {COLOR_LABEL[c]}
+              {m.color[c]}
             </button>
           ))}
           <button disabled={sans.length === 0} onClick={() => setSans(sans.slice(0, -1))}>
-            한 수 무르기
+            {m.undo}
           </button>
           <button disabled={sans.length === 0} onClick={() => setSans([])}>
-            처음으로
+            {m.toStart}
           </button>
         </div>
         <p className="pv">{sans.map((s, i) => (i % 2 === 0 ? `${i / 2 + 1}.${s}` : s)).join(' ')}</p>
-        <p className="dim">보드에서 백·흑 수를 번갈아 두면 그 수순으로 이어지는 오프닝만 남습니다.</p>
+        <p className="dim">{m.explorerHint}</p>
       </main>
       <aside className="right">
-        <h2>가능한 오프닝 ({matches.length})</h2>
+        <h2>{m.possibleOpenings(matches.length)}</h2>
         {matches.length === 0 ? (
-          <p className="dim">이 수순으로 이어지는 {COLOR_LABEL[color]} 오프닝이 라이브러리에 없습니다.</p>
+          <p className="dim">{m.noMatchingOpening(m.color[color])}</p>
         ) : (
           <div className="previews">
-            {matches.map((m) => (
+            {matches.map((x) => (
               <OpeningPreview
-                key={`${m.op.id}:${sans.join(' ')}`}
-                op={m.op}
-                fromId={m.nodeId}
+                key={`${x.op.id}:${sans.join(' ')}`}
+                op={x.op}
+                fromId={x.nodeId}
                 orientation={color}
-                onOpen={() => onOpen(m.op.id, m.nodeId)}
+                onOpen={() => onOpen(x.op.id, x.nodeId)}
               />
             ))}
           </div>
         )}
         {moves.length > 0 && (
           <section className="panel next-moves">
-            <h2>가능한 {COLOR_LABEL[side]}의 수</h2>
+            <h2>{m.possibleMoves(m.color[side])}</h2>
             <p className="pv">{moves.join('  ')}</p>
           </section>
         )}

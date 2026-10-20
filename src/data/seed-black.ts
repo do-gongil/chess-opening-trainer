@@ -187,7 +187,7 @@ export const BLACK: Seed[] = [
       'd4 Nf6 c4 e6 Nc3 Bb4 Bg5 h6 Bh4 c5 d5 d6 e3 Bxc3+ bxc3 e5',
     ],
     comments: {
-      'd4 Nf6 c4 e6 Nc3 Bb4 e3': '루빈스타인. 흑은 d5·c5·Nc6로 중앙을 열고 Bxc3 bxc4 후 Qc7.',
+      'd4 Nf6 c4 e6 Nc3 Bb4 e3': '루빈스타인. 흑은 d5·c5·Nc6로 중앙을 열고 Bxc3 bxc3 후 Qc7.',
       'd4 Nf6 c4 e6 Nc3 Bb4 Qc2': '클래시컬. 더블 폰을 피하는 대신 템포를 잃는다. b6·Bb7로 e4를 통제.',
       'd4 Nf6 c4 e6 Nc3 Bb4 a3': '재미시. 즉시 Bxc3를 강요하고 c5·Nc6·Ne8-d6로 c4 약점을 노린다.',
       'd4 Nf6 c4 e6 Nc3 Bb4 Bg5': '레닌그라드. h6 Bh4 c5 d5로 닫힌 구조.',

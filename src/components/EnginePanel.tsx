@@ -1,6 +1,7 @@
 import { Chess } from 'chess.js'
 import { useMemo } from 'react'
 import type { Eval } from '../engine/stockfish'
+import { useI18n } from '../i18n'
 
 interface Props {
   fen: string
@@ -30,20 +31,21 @@ function toSan(fen: string, pv: string[]) {
 }
 
 export function EnginePanel({ fen, ev, on, setOn }: Props) {
+  const { m } = useI18n()
   const pv = useMemo(() => (ev ? toSan(fen, ev.pv) : []), [fen, ev])
   return (
     <section className="panel">
       <label>
-        <input type="checkbox" checked={on} onChange={(e) => setOn(e.target.checked)} /> 엔진 분석 (Stockfish 18 lite)
+        <input type="checkbox" checked={on} onChange={(e) => setOn(e.target.checked)} /> {m.engineLabel}
       </label>
       {on &&
         (ev ? (
           <div>
-            <b className="score">{score(ev)}</b> <small className="dim">깊이 {ev.depth}</small>
+            <b className="score">{score(ev)}</b> <small className="dim">{m.depth(ev.depth)}</small>
             <div className="pv">{pv.join(' ')}</div>
           </div>
         ) : (
-          <p className="dim">분석 중…</p>
+          <p className="dim">{m.analyzing}</p>
         ))}
     </section>
   )

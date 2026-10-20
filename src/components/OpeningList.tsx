@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { seedLibrary } from '../data/seed'
-import { CATEGORIES, CATEGORY_LABEL, COLORS, COLOR_LABEL } from '../model/categories'
+import { useI18n } from '../i18n'
+import { CATEGORIES, COLORS } from '../model/categories'
 import { exportLibrary, importLibrary, useLibrary } from '../model/store'
 import { newOpening } from '../model/tree'
 import type { Category, Color } from '../model/types'
@@ -13,6 +14,8 @@ interface Props {
 
 export function OpeningList({ selectedId, editing, onSelect }: Props) {
   const { lib, dispatch } = useLibrary()
+  const i18n = useI18n()
+  const { m } = i18n
   const [color, setColor] = useState<Color>('white')
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
@@ -32,11 +35,11 @@ export function OpeningList({ selectedId, editing, onSelect }: Props) {
     if (!file) return
     try {
       const library = await importLibrary(file)
-      if (!confirm(`오프닝 ${library.openings.length}개로 현재 데이터를 덮어씁니다. 계속할까요?`)) return
+      if (!confirm(m.confirmImport(library.openings.length))) return
       dispatch({ type: 'replace', library })
       onSelect(library.openings[0]?.id ?? '')
-    } catch (err) {
-      alert(err instanceof Error ? err.message : '가져오기 실패')
+    } catch {
+      alert(m.badFile)
     }
   }
 
@@ -44,18 +47,18 @@ export function OpeningList({ selectedId, editing, onSelect }: Props) {
     <nav className="openings">
       {COLORS.map((c) => (
         <div key={c}>
-          <h2>{COLOR_LABEL[c]}</h2>
+          <h2>{m.color[c]}</h2>
           {CATEGORIES[c].map((cat) => {
             const items = lib.openings.filter((o) => o.color === c && o.category === cat)
             return (
               <div key={cat} className="cat">
-                <h3>{CATEGORY_LABEL[cat]}</h3>
-                {items.length === 0 && <p className="dim">없음</p>}
+                <h3>{m.category[cat]}</h3>
+                {items.length === 0 && <p className="dim">{m.none}</p>}
                 {items.map((o) => (
                   <div key={o.id} className={'opening' + (o.id === selectedId ? ' sel' : '')}>
-                    <button onClick={() => onSelect(o.id)}>{o.name}</button>
+                    <button onClick={() => onSelect(o.id)}>{i18n.name(o)}</button>
                     {editing && (
-                      <button className="x" title="삭제" onClick={() => confirm(`'${o.name}'을(를) 삭제할까요?`) && dispatch({ type: 'delete', id: o.id })}>
+                      <button className="x" title={m.remove} onClick={() => confirm(m.confirmRemove(i18n.name(o))) && dispatch({ type: 'delete', id: o.id })}>
                         ×
                       </button>
                     )}
@@ -68,34 +71,34 @@ export function OpeningList({ selectedId, editing, onSelect }: Props) {
       ))}
       {editing && (
         <form className="new" onSubmit={submit}>
-          <h3>새 오프닝</h3>
+          <h3>{m.newOpening}</h3>
           <select value={color} onChange={(e) => setColor(e.target.value as Color)}>
             {COLORS.map((c) => (
               <option key={c} value={c}>
-                {COLOR_LABEL[c]}
+                {m.color[c]}
               </option>
             ))}
           </select>
           <select name="category">
             {CATEGORIES[color].map((cat) => (
               <option key={cat} value={cat}>
-                {CATEGORY_LABEL[cat]}
+                {m.category[cat]}
               </option>
             ))}
           </select>
-          <input name="name" placeholder="이름" required />
-          <input name="description" placeholder="설명" />
-          <button type="submit">추가</button>
+          <input name="name" placeholder={m.namePlaceholder} required />
+          <input name="description" placeholder={m.descPlaceholder} />
+          <button type="submit">{m.add}</button>
         </form>
       )}
       <div className="tools">
-        <button onClick={() => exportLibrary(lib)}>내보내기</button>
+        <button onClick={() => exportLibrary(lib)}>{m.exportData}</button>
         <label className="btn">
-          가져오기
+          {m.importData}
           <input type="file" accept=".json,application/json" onChange={onImport} hidden />
         </label>
-        <button onClick={() => confirm('모든 데이터를 시드로 초기화합니다. 계속할까요?') && dispatch({ type: 'replace', library: seedLibrary() })}>
-          초기화
+        <button onClick={() => confirm(m.confirmReset) && dispatch({ type: 'replace', library: seedLibrary() })}>
+          {m.reset}
         </button>
       </div>
     </nav>

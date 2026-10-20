@@ -65,7 +65,7 @@ export function exportLibrary(lib: Library) {
 
 export async function importLibrary(file: File): Promise<Library> {
   const parsed: unknown = JSON.parse(await file.text())
-  if (!isLibrary(parsed)) throw new Error('형식이 맞지 않는 파일입니다')
+  if (!isLibrary(parsed)) throw new Error('invalid library file')
   return parsed
 }
 
