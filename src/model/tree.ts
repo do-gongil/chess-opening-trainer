@@ -1,5 +1,5 @@
 import { Chess } from 'chess.js'
-import type { MoveNode, Opening, OpeningMeta } from './types'
+import type { Color, MoveNode, Opening, OpeningMeta } from './types'
 
 // 모든 함수는 순수: 입력을 바꾸지 않고 새 Opening을 반환한다.
 // ponytail: 전위(transposition) 미지원. 같은 국면이 다른 경로로 나오면 별도 노드. 필요해지면 fen→id 인덱스 추가.
@@ -81,6 +81,14 @@ export function findByPath(op: Opening, sans: string[]): string | undefined {
     if (!cur) return undefined
   }
   return cur
+}
+
+/** color 오프닝 중 sans 수순이 트리에 있고 그 뒤로 이어질 수가 있는 것(lib 순서). sans가 []이면 그 색 오프닝 전부. */
+export function openingsFrom(openings: Opening[], color: Color, sans: string[]): { op: Opening; nodeId: string }[] {
+  return openings.flatMap((op) => {
+    const nodeId = op.color === color ? findByPath(op, sans) : undefined
+    return nodeId && op.nodes[nodeId].children.length > 0 ? [{ op, nodeId }] : []
+  })
 }
 
 /** SAN 라인 배열로 오프닝을 만든다. 첫 라인이 메인, 공통 접두어는 공유. comments 키는 'd4 d5 Bf4' 형식. */

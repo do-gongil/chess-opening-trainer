@@ -4,7 +4,7 @@ import type { Seed } from './seed'
 export const BLACK: Seed[] = [
   // ───── 디펜스 (vs e4) ─────
   {
-    color: 'black', category: 'defense', name: '시실리안 나이도르프',
+    color: 'black', category: 'defense', name: '시실리안 나이도프',
     description: 'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6. 백의 잉글리시 어택·Bg5·Be2·Bc4 각각에 대한 응수.',
     related: ['스미스-모라 갬빗', '안티 시실리안 대응'],
     lines: [
@@ -14,7 +14,7 @@ export const BLACK: Seed[] = [
       'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bc4 e6 Bb3 b5 O-O Be7 Qf3 Qc7',
     ],
     comments: {
-      'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6': '나이도르프. a6로 b5를 준비하고 Nb5·Bb5를 막는다.',
+      'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6': '나이도프. a6로 b5를 준비하고 Nb5·Bb5를 막는다.',
       'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Be3': '잉글리시 어택. 백은 f3, Qd2, O-O-O, g4로 공격한다. 흑은 e5로 중앙을 고정한다.',
       'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5': '가장 날카로운 6.Bg5. e6·Be7로 견고하게 받는다.',
       'e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bc4': '소진(피셔) 어택. e6·b5로 비숍을 무디게 한다.',
@@ -52,7 +52,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'defense', name: '안티 시실리안 대응',
     description: '로솔리모(Bb5), 모스크바(Bb5+), 알라핀(c3), 클로즈드(Nc3)에 대한 흑의 응수.',
-    related: ['스미스-모라 갬빗', '시실리안 나이도르프'],
+    related: ['스미스-모라 갬빗', '시실리안 나이도프'],
     lines: [
       'e4 c5 Nf3 Nc6 Bb5 g6 Bxc6 dxc6 d3 Bg7 h3 Nf6 Nc3 O-O Be3 b6',
       'e4 c5 Nf3 d6 Bb5+ Bd7 Bxd7+ Qxd7 O-O Nc6 c3 Nf6 Re1',
@@ -68,8 +68,40 @@ export const BLACK: Seed[] = [
     },
   },
   {
+    color: 'black', category: 'defense', name: '스미스-모라 갬빗 대응',
+    description: 'e4 c5 d4 cxd4 c3. 시실리안에서 백이 폰을 던지는 스미스-모라 갬빗에 대한 흑의 응수. dxc3 Nxc3로 수락한 뒤 Nc6·d6·e6 조합(포메이션)을 고르고, 거절하려면 Nf6(알라핀)·d3(푸시).',
+    related: ['스미스-모라 갬빗', '안티 시실리안 대응'],
+    lines: [
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 e6 O-O Nf6 Qe2 Be7 Rd1 e5 Be3 O-O',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 e6 Bc4 a6 O-O b5 Bb3 Bc5',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 a6 O-O Nf6',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 e6 Bc4 Bb4',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 g6',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 d6 Nf3 e6 Bc4 Nf6 O-O a6',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 e6 Nf3 a6',
+      'e4 c5 d4 cxd4 c3 Nf6 e5 Nd5 cxd4 d6 Nf3 Nc6 Bc4 Nb6 Bb5',
+      'e4 c5 d4 cxd4 c3 d3 Bxd3 Nc6 Nf3 d6 O-O',
+    ],
+    comments: {
+      'e4 c5 d4': '스미스-모라 갬빗(2.d4). 나이트로 d4를 받치지 않고 바로 중앙을 연다. 흑은 거의 2...cxd4로 받는다.',
+      'e4 c5 d4 cxd4 c3': '3.c3. dxc3로 폰을 잡으면 갬빗 수락, 그 밖의 수는 모두 거절이다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3': '갬빗 수락. 폰은 하나 이득이지만 백의 전개가 앞선다. 다음 수로 포메이션이 갈린다: Nc6(파울센·클래시컬·핀·스헤베닝겐 등), d6(시카고), e6(칸·타이마노프 등).',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 e6': '스헤베닝겐 포메이션(Nc6·d6·e6). 수락 라인의 메인. 빨리 O-O로 킹을 안전하게 하는 것이 목표다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 e6 O-O Nf6 Qe2 Be7 Rd1': 'd6를 압박하는 백의 핵심 배치. 흑은 e5로 중앙을 고정하고, 백은 Nd5 희생 아이디어를 노린다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 e6 Bc4 a6': '파울센 포메이션. a6로 Nb5를 막고 b5(퀸사이드 확장) 또는 Nge7로 이어 간다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 e6 Bc4 a6 O-O b5 Bb3 Bc5': '디퍼드 모피 디펜스. b5로 백 비숍을 쫓은 뒤 Bc5로 전개한다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 a6': '클래시컬 포메이션. a6를 먼저 두고 Nf6로 전개한다. a6 없이 곧바로 Nf6를 두면 e5!로 곤란해진다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 e6 Bc4 Bb4': '핀 디펜스. 비숍으로 나이트에 핀을 걸어 백의 d5 장악을 약하게 한다. 백은 O-O나 Bd2가 좋다고 알려져 있다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 g6': '피앙케토 디펜스. 중앙을 잠시 내주고 g7 비숍을 전개한 뒤 폰 브레이크로 맞선다.',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 d6 Nf3 e6 Bc4 Nf6 O-O a6': '시카고 디펜스(d6·e6·Nf6·a6).',
+      'e4 c5 d4 cxd4 c3 dxc3 Nxc3 e6 Nf3 a6': '칸 포메이션(e6·a6). 이후 Ne7이면 타이마노프, Nc6이면 파울센 포메이션이 된다.',
+      'e4 c5 d4 cxd4 c3 Nf6': '갬빗 거절, 알라핀 포메이션. 폰을 잡지 않고 알라핀 시실리안 구조로 간다. 4.e5 Nd5 5.cxd4 d6로 e5 폰을 공격한다.',
+      'e4 c5 d4 cxd4 c3 d3': '푸시 베리에이션. 폰을 잡지 않고 d3로 민다. 4.Bxd3로 백이 폰을 되찾고 비숍을 전개하므로 수동적이다.',
+    },
+  },
+  {
     color: 'black', category: 'defense', name: '프렌치 디펜스',
-    description: 'e4 e6 d4 d5. 비나워·클래시컬(3.Nc3), 타라시(3.Nd2), 어드밴스(3.e5), 익스체인지.',
+    description: 'e4 e6 d4 d5. 위나워·클래시컬(3.Nc3), 타라시(3.Nd2), 어드밴스(3.e5), 익스체인지.',
     related: ['킹즈 인디언 어택 & 레티'],
     lines: [
       'e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 Qc7 Qxg7 Rg8 Qxh7 cxd4',
@@ -81,7 +113,7 @@ export const BLACK: Seed[] = [
       'e4 e6 d4 d5 exd5 exd5 Nf3 Bd6 Bd3 Nc6 O-O Nge7 c3 Bg4',
     ],
     comments: {
-      'e4 e6 d4 d5 Nc3 Bb4': '비나워. Bxc3로 구조를 망가뜨리고 c5·Qc7로 반격. Qg4 독폰 변형은 난전.',
+      'e4 e6 d4 d5 Nc3 Bb4': '위나워. Bxc3로 구조를 망가뜨리고 c5·Qc7로 반격. Qg4 독폰 변형은 난전.',
       'e4 e6 d4 d5 Nc3 Nf6 e5': '클래시컬 슈타이니츠. f4·Nf3·Be3로 중앙을 굳히고 흑은 c5·f6로 흔든다.',
       'e4 e6 d4 d5 Nc3 dxe4': '루빈스타인. 견고하지만 공간이 좁다. c5로 풀어야 한다.',
       'e4 e6 d4 d5 Nd2': '타라시. c5로 열거나 Nf6로 닫는다. Bb4 핀을 피한 대신 d4가 약해진다.',
@@ -112,7 +144,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'defense', name: '페트로프 디펜스',
     description: 'e4 e5 Nf3 Nf6. 대칭적으로 e4를 되받아 이론 부담을 줄이는 견고한 디펜스.',
-    related: ['이탈리안 게임', '루이 로페즈', '스카치 게임', '포 나이츠 게임', '비엔나 게임 & 비숍 오프닝', '킹즈 갬빗', '센터 게임 & 데니시 갬빗', '스타포드 갬빗'],
+    related: ['이탈리안 게임', '루이 로페즈', '스카치 게임', '포 나이트 게임', '비엔나 게임 & 비숍 오프닝', '킹즈 갬빗', '센터 게임 & 대니쉬 갬빗', '스태포드 갬빗'],
     lines: [
       'e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 d4 d5 Bd3 Nc6 O-O Be7 c4 Nb4 Be2 O-O Nc3 Bf5',
       'e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 Nc3 Nxc3 dxc3 Be7 Be3 Nc6 Qd2 Be6 O-O-O Qd7',
@@ -147,7 +179,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'defense', name: '님조 인디언 디펜스',
     description: 'd4 Nf6 c4 e6 Nc3 Bb4. Bxc3로 더블 폰을 만들거나 핀으로 e4를 억제하는 최고급 디펜스.',
-    related: ['트롬포프스키 & 토레 어택', '카탈란'],
+    related: ['트롬파우스키 & 토레 어택', '카탈란 오프닝'],
     lines: [
       'd4 Nf6 c4 e6 Nc3 Bb4 e3 O-O Bd3 d5 Nf3 c5 O-O Nc6 a3 Bxc3 bxc3 dxc4 Bxc4 Qc7',
       'd4 Nf6 c4 e6 Nc3 Bb4 Qc2 O-O a3 Bxc3+ Qxc3 b6 Bg5 Bb7 e3 d6 Nf3 Nbd7',
@@ -164,7 +196,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'defense', name: '퀸즈 인디언 디펜스',
     description: 'd4 Nf6 c4 e6 Nf3 b6. 님조를 피하는 3.Nf3에 대해 긴 대각선으로 e4를 통제한다.',
-    related: ['카탈란'],
+    related: ['카탈란 오프닝'],
     lines: [
       'd4 Nf6 c4 e6 Nf3 b6 g3 Ba6 b3 Bb4+ Bd2 Be7 Bg2 c6 Bc3 d5 Ne5 Nfd7 Nxd7 Nxd7 Nd2 O-O',
       'd4 Nf6 c4 e6 Nf3 b6 g3 Bb7 Bg2 Be7 O-O O-O Nc3 Ne4 Qc2 Nxc3 Qxc3 c5',
@@ -180,7 +212,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'defense', name: '보고 인디언 디펜스',
     description: 'd4 Nf6 c4 e6 Nf3 Bb4+. 비숍을 교환하거나 템포를 벌어 견고하게 두는 디펜스.',
-    related: ['카탈란'],
+    related: ['카탈란 오프닝'],
     lines: [
       'd4 Nf6 c4 e6 Nf3 Bb4+ Bd2 Qe7 g3 Nc6 Bg2 Bxd2+ Nbxd2 d6 O-O O-O e4 e5 d5 Nb8',
       'd4 Nf6 c4 e6 Nf3 Bb4+ Bd2 a5 g3 d5 Bg2 Nbd7 O-O O-O Qc2 c6 Bf4 b6',
@@ -211,26 +243,26 @@ export const BLACK: Seed[] = [
     },
   },
   {
-    color: 'black', category: 'defense', name: '세미슬라브 디펜스',
-    description: 'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6. 메란·보트비닉·모스크바 등 가장 복잡한 QGD 계열.',
+    color: 'black', category: 'defense', name: '세미 슬라브 디펜스',
+    description: 'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6. 메란·보트비닉·모스크바 등 가장 복잡한 QGD 계열.',
     related: ['퀸즈 갬빗'],
     lines: [
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 e3 Nbd7 Bd3 dxc4 Bxc4 b5 Bd3 Bb7 O-O a6 e4 c5 d5 c4 Bc2 Qc7',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Bg5 dxc4 e4 b5 e5 h6 Bh4 g5 Nxg5 hxg5 Bxg5 Nbd7 exf6 Bb7',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Bg5 h6 Bxf6 Qxf6 e3 Nd7 Bd3 dxc4 Bxc4 g6 O-O Bg7',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Qc2 Bd6 g3 O-O Bg2 Nbd7 O-O e5 dxe5 Nxe5 Nxe5 Bxe5',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 e3 Nbd7 Bd3 dxc4 Bxc4 b5 Bd3 Bb7 O-O a6 e4 c5 d5 c4 Bc2 Qc7',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Bg5 dxc4 e4 b5 e5 h6 Bh4 g5 Nxg5 hxg5 Bxg5 Nbd7 exf6 Bb7',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Bg5 h6 Bxf6 Qxf6 e3 Nd7 Bd3 dxc4 Bxc4 g6 O-O Bg7',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Qc2 Bd6 g3 O-O Bg2 Nbd7 O-O e5 dxe5 Nxe5 Nxe5 Bxe5',
     ],
     comments: {
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 e3 Nbd7 Bd3 dxc4 Bxc4 b5': '메란. 퀸사이드 폰 다수로 반격. c5·Bb7·a6가 핵심.',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Bg5 dxc4': '보트비닉. 극도로 복잡한 희생 라인. 암기가 필수.',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Bg5 h6': '모스크바 변형. Bxf6 Qxf6로 비숍 쌍을 얻고 g6·Bg7.',
-      'd4 d5 c4 c6 Nc3 Nf6 Nf3 e6 Qc2': '안티 메란 Qc2. Bd6·O-O·Nbd7 후 e5로 중앙을 연다.',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 e3 Nbd7 Bd3 dxc4 Bxc4 b5': '메란. 퀸사이드 폰 다수로 반격. c5·Bb7·a6가 핵심.',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Bg5 dxc4': '보트비닉. 극도로 복잡한 희생 라인. 암기가 필수.',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Bg5 h6': '모스크바 변형. Bxf6 Qxf6로 비숍 쌍을 얻고 g6·Bg7.',
+      'd4 d5 c4 c6 Nf3 Nf6 Nc3 e6 Qc2': '안티 메란 Qc2. Bd6·O-O·Nbd7 후 e5로 중앙을 연다.',
     },
   },
   {
-    color: 'black', category: 'defense', name: '그륀펠트 디펜스',
+    color: 'black', category: 'defense', name: '그룬펠드 디펜스',
     description: 'd4 Nf6 c4 g6 Nc3 d5. 백에게 넓은 중앙을 주고 Bg7·c5로 그 중앙을 공격한다.',
-    related: ['런던 시스템', '트롬포프스키 & 토레 어택', '잉글리시 오프닝'],
+    related: ['런던 시스템', '트롬파우스키 & 토레 어택', '잉글리시 오프닝'],
     lines: [
       'd4 Nf6 c4 g6 Nc3 d5 cxd5 Nxd5 e4 Nxc3 bxc3 Bg7 Nf3 c5 Rb1 O-O Be2 cxd4 cxd4 Qa5+ Bd2 Qxa2 O-O',
       'd4 Nf6 c4 g6 Nc3 d5 Nf3 Bg7 Qb3 dxc4 Qxc4 O-O e4 a6 e5 b5 Qb3 Nfd7 e6 c5',
@@ -275,7 +307,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'system', name: '킹즈 인디언 디펜스',
     description: 'Nf6, g6, Bg7, d6, O-O 셋업. 중앙을 내주고 e5·f5로 반격하는 체계.',
-    related: ['런던 시스템', '콜 시스템', '트롬포프스키 & 토레 어택', '잉글리시 오프닝', '킹즈 인디언 어택 & 레티'],
+    related: ['런던 시스템', '콜 시스템', '트롬파우스키 & 토레 어택', '잉글리시 오프닝', '킹즈 인디언 어택 & 레티'],
     lines: [
       'd4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Ne1 Nd7 Be3 f5 f3 f4 Bf2 g5',
       'd4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 Nd2 a5 Rb1 Nd7 a3 f5',
@@ -294,7 +326,7 @@ export const BLACK: Seed[] = [
     },
   },
   {
-    color: 'black', category: 'system', name: '피르츠 & 모던 디펜스',
+    color: 'black', category: 'system', name: '피어츠 & 모던 디펜스',
     description: 'd6·g6·Bg7 셋업으로 중앙을 내주고 나중에 c5·e5로 흔든다. 오스트리안·클래시컬·150 어택 대응.',
     related: [],
     lines: [
@@ -334,7 +366,7 @@ export const BLACK: Seed[] = [
   {
     color: 'black', category: 'counter', name: '스칸디나비안 디펜스',
     description: 'e4 d5. 첫 수부터 중앙 폰을 교환해 백의 준비를 피한다.',
-    related: ['ICBM 갬빗'],
+    related: ['테니슨 갬빗'],
     lines: [
       'e4 d5 exd5 Qxd5 Nc3 Qa5 d4 Nf6 Nf3 c6 Bc4 Bf5 Bd2 e6 Qe2 Bb4 O-O-O Nbd7',
       'e4 d5 exd5 Qxd5 Nc3 Qd6 d4 Nf6 Nf3 a6 g3 Bg4 Bg2 Nc6 O-O O-O-O',
@@ -347,7 +379,7 @@ export const BLACK: Seed[] = [
     },
   },
   {
-    color: 'black', category: 'counter', name: '스타포드 갬빗',
+    color: 'black', category: 'counter', name: '스태포드 갬빗',
     description: '페트로프에서 Nxe5 Nc6 Nxc6 dxc6. 폰을 내주고 Bc5·Ng4·Qd6 함정으로 백을 흔든다.',
     related: ['이탈리안 게임', '루이 로페즈', '페트로프 디펜스'],
     lines: [
@@ -356,7 +388,7 @@ export const BLACK: Seed[] = [
       'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6 e5 Ne4 d3 Bc5 dxe4 Bxf2+ Kxf2 Qxd1',
     ],
     comments: {
-      'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6': '스타포드 갬빗. 객관적으로 불리하지만 함정이 많다. Bc5, Ng4, h5, Qd6가 핵심 아이디어.',
+      'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6': '스태포드 갬빗. 객관적으로 불리하지만 함정이 많다. Bc5, Ng4, h5, Qd6가 핵심 아이디어.',
       'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6 d3 Bc5 Be2 h5 O-O Ng4 h3 Qd6': 'hxg4? hxg4 후 h파일로 메이트 위협. 백은 대신 c3·d4로 비숍을 쫓아야 한다.',
       'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6 Nc3 Bc5 d3': 'd3?는 Ng4로 f2·e3를 노린다. Be3 Nxe3 fxe3 Bxe3.',
       'e4 e5 Nf3 Nf6 Nxe5 Nc6 Nxc6 dxc6 e5 Ne4 d3 Bc5 dxe4': 'dxe4?? Bxf2+ Kxf2 Qxd1로 퀸을 잡는 대표 함정.',

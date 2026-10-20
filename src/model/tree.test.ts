@@ -1,7 +1,7 @@
 import { Chess } from 'chess.js'
 import { describe, expect, it } from 'vitest'
 import { seedLibrary } from '../data/seed'
-import { addMove, deleteSubtree, linesToOpening, mainLine, pathTo, promoteToMain } from './tree'
+import { addMove, deleteSubtree, linesToOpening, mainLine, openingsFrom, pathTo, promoteToMain } from './tree'
 
 const meta = { color: 'white', category: 'system', name: 't', description: '' } as const
 
@@ -65,5 +65,29 @@ describe('tree', () => {
     expect(names.size).toBe(lib.openings.length)
     for (const op of lib.openings)
       for (const r of op.related ?? []) expect(names.has(r), `${op.name} → ${r}`).toBe(true)
+  })
+
+  it('openingsFrom: 색·수순이 맞는 오프닝만, 리프는 제외, 세미 슬라브는 3.Nf3 Nf6 4.Nc3에서도 잡힌다', () => {
+    const { openings } = seedLibrary()
+    const names = (color: 'white' | 'black', sans: string[]) => openingsFrom(openings, color, sans).map((m) => m.op.name)
+    expect(names('white', ['d4'])).toEqual(expect.arrayContaining(['런던 시스템', '콜 시스템', '퀸즈 갬빗']))
+    expect(openingsFrom(openings, 'white', ['d4']).every((m) => m.op.color === 'white')).toBe(true)
+    expect(names('black', ['e4'])).toEqual(expect.arrayContaining(['시실리안 나이도프', '프렌치 디펜스', '카로칸 디펜스']))
+    expect(names('black', ['e4', 'c5', 'd4'])).toContain('스미스-모라 갬빗 대응') // 흑이 2.d4 스미스-모라를 만나도 흑 오프닝이 나온다
+    expect(names('black', ['d4', 'd5', 'c4', 'c6', 'Nf3', 'Nf6', 'Nc3'])).toContain('세미 슬라브 디펜스')
+    expect(names('white', ['h4'])).toEqual([])
+    expect(names('white', ['Nf3', 'd5', 'e4'])).toEqual(expect.arrayContaining(['테니슨 갬빗', 'ICBM 갬빗'])) // 레티 1...d5 2.e4 파생
+    const kg = ['e4', 'e5', 'f4', 'exf4', 'Nf3', 'g5']
+    expect(names('white', [...kg, 'Bc4', 'g4', 'O-O'])).toContain('무지오 갬빗') // 킹즈 갬빗 파생
+    expect(names('white', [...kg, 'Bc4', 'g4', 'Bxf7+'])).toEqual(['롤리 갬빗'])
+    expect(names('white', [...kg, 'h4', 'g4', 'Ng5'])).toEqual(['알가이어 갬빗'])
+    expect(names('white', [...kg, 'Nc3'])).toEqual(['쿼드 갬빗'])
+    expect(names('white', [...kg.slice(0, 4), 'Bc4'])).toEqual(expect.arrayContaining(['킹즈 갬빗', '비숍스 갬빗']))
+
+    const op = linesToOpening(meta, [['d4', 'd5']])
+    expect(openingsFrom([op], 'white', [])).toHaveLength(1)
+    expect(openingsFrom([op], 'white', ['d4'])[0].nodeId).toBe(op.nodes[op.root].children[0])
+    expect(openingsFrom([op], 'white', ['d4', 'd5'])).toEqual([]) // 이어질 수가 없으면 보여줄 애니메이션도 없다
+    expect(openingsFrom([op], 'black', ['d4'])).toEqual([])
   })
 })

@@ -63,6 +63,14 @@ main.wide { grid-column: 2 / -1; }
 /* 훈련 */
 .drill { display: grid; grid-template-columns: minmax(320px, 560px) minmax(260px, 1fr); gap: 12px; }
 
+/* 오프닝 탐색 */
+.previews { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.preview { display: flex; flex-direction: column; gap: 4px; text-align: left; padding: 8px; background: #fff; border: 1px solid #e2e2e2; border-radius: 6px; animation: preview-in 250ms ease-out; isolation: isolate; } /* react-chessboard 가 이동 중인 기물에 z-index 10 을 줘서, 가두지 않으면 sticky 패널 위로 번쩍인다 */
+.preview:hover { border-color: #2b5797; background: #fff; }
+.preview .pv { min-height: 1.5em; } /* 재생 시작 전에도 줄 높이를 유지해 카드가 흔들리지 않게 */
+.next-moves { position: sticky; bottom: 0; } /* 카드가 많아 스크롤돼도 목록 아래에 계속 보이게 */
+@keyframes preview-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
 /* 관련 오프닝 칩 */
 .chip { font-size: 13px; padding: 2px 8px; border-radius: 12px; background: #eef3fa; border-color: #c9d8ee; }
 .chip:hover { background: #dbe7f7; }

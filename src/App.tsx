@@ -4,6 +4,7 @@ import { Board } from './components/Board'
 import { CommentPanel } from './components/CommentPanel'
 import { Drill } from './components/Drill'
 import { EnginePanel } from './components/EnginePanel'
+import { Explorer } from './components/Explorer'
 import { MoveTree } from './components/MoveTree'
 import { OpeningList } from './components/OpeningList'
 import { useEngine } from './engine/useEngine'
@@ -12,8 +13,9 @@ import { useLibrary } from './model/store'
 import { addMove, START_FEN } from './model/tree'
 import type { Opening } from './model/types'
 
-type Mode = 'browse' | 'edit' | 'drill'
+type Mode = 'browse' | 'edit' | 'drill' | 'explore'
 const MODES: [Mode, string][] = [
+  ['explore', '오프닝'],
   ['browse', '탐색'],
   ['edit', '편집'],
   ['drill', '훈련'],
@@ -42,8 +44,8 @@ export default function App() {
   }
   const update = (o: Opening) => dispatch({ type: 'update', opening: o })
 
-  const ev = useEngine(fen, engineOn && mode !== 'drill')
-  useKeyNav(mode === 'drill' ? undefined : op, node?.id ?? '', go)
+  const ev = useEngine(fen, engineOn && mode !== 'drill' && mode !== 'explore')
+  useKeyNav(mode === 'drill' || mode === 'explore' ? undefined : op, node?.id ?? '', go)
 
   const onMove = (from: string, to: string) => {
     if (!op || !node) return false
@@ -81,9 +83,25 @@ export default function App() {
         </nav>
       </header>
       <aside className="left">
-        <OpeningList selectedId={op?.id ?? ''} editing={mode === 'edit'} onSelect={selectOpening} />
+        <OpeningList
+          selectedId={op?.id ?? ''}
+          editing={mode === 'edit'}
+          onSelect={(id) => {
+            selectOpening(id)
+            if (mode === 'explore') setMode('browse')
+          }}
+        />
       </aside>
-      {!op || !node ? (
+      {mode === 'explore' ? (
+        <Explorer
+          openings={lib.openings}
+          onOpen={(oid, nid) => {
+            setOpeningId(oid)
+            go(nid)
+            setMode('browse')
+          }}
+        />
+      ) : !op || !node ? (
         <main className="wide dim">편집 모드에서 오프닝을 추가하세요.</main>
       ) : mode === 'drill' ? (
         <main className="wide">

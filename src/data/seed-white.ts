@@ -7,7 +7,7 @@ export const WHITE: Seed[] = [
   {
     color: 'white', category: 'system', name: '런던 시스템',
     description: 'd4 + Bf4 셋업. 흑의 응수와 거의 무관하게 같은 구조(e3, Nf3, c3, Nbd2, Bd3)를 세운다.',
-    related: ['킹즈 인디언 디펜스', '슬라브 디펜스', '그륀펠트 디펜스', '더치 디펜스', '콜 시스템'],
+    related: ['킹즈 인디언 디펜스', '슬라브 디펜스', '그룬펠드 디펜스', '더치 디펜스', '콜 시스템'],
     lines: [
       'd4 d5 Bf4 Nf6 e3 e6 Nf3 c5 c3 Nc6 Nbd2 Bd6 Bg3 O-O Bd3 b6 Ne5',
       'd4 d5 Bf4 c5 e3 Nc6 c3 Qb6 Qb3 c4 Qc2',
@@ -37,9 +37,9 @@ export const WHITE: Seed[] = [
     },
   },
   {
-    color: 'white', category: 'system', name: '트롬포프스키 & 토레 어택',
-    description: 'd4 Nf6 후 Bg5(트롬포프스키) 또는 Nf3·Bg5(토레). 인디언 디펜스를 피하는 비숍 시스템.',
-    related: ['킹즈 인디언 디펜스', '그륀펠트 디펜스', '님조 인디언 디펜스'],
+    color: 'white', category: 'system', name: '트롬파우스키 & 토레 어택',
+    description: 'd4 Nf6 후 Bg5(트롬파우스키) 또는 Nf3·Bg5(토레). 인디언 디펜스를 피하는 비숍 시스템.',
+    related: ['킹즈 인디언 디펜스', '그룬펠드 디펜스', '님조 인디언 디펜스'],
     lines: [
       'd4 Nf6 Bg5 Ne4 Bf4 c5 f3 Qa5+ c3 Nf6 d5 Qb6 Bc1 e6',
       'd4 Nf6 Bg5 e6 e4 h6 Bxf6 Qxf6 Nf3 d6 Nc3 Nd7 Qd2 a6 O-O-O',
@@ -48,7 +48,7 @@ export const WHITE: Seed[] = [
       'd4 Nf6 Nf3 g6 Bg5 Bg7 Nbd2 O-O e3 d6 Be2 c5 c3 Nc6 O-O',
     ],
     comments: {
-      'd4 Nf6 Bg5': '트롬포프스키. Bxf6로 폰 구조를 망가뜨리겠다는 위협으로 흑의 자연스러운 전개를 방해한다.',
+      'd4 Nf6 Bg5': '트롬파우스키. Bxf6로 폰 구조를 망가뜨리겠다는 위협으로 흑의 자연스러운 전개를 방해한다.',
       'd4 Nf6 Bg5 Ne4': '가장 원칙적인 응수. Bf4 c5 f3로 나이트를 쫓고 Qa5+ 이후 복잡한 싸움.',
       'd4 Nf6 Bg5 d5': 'Bxf6 exf6로 더블 폰을 감수하고 비숍 쌍을 얻는다.',
       'd4 Nf6 Nf3 e6 Bg5': '토레 어택. 콜과 비슷한 셋업에 Bg5를 더해 e5 돌파를 노린다.',
@@ -77,8 +77,8 @@ export const WHITE: Seed[] = [
   // ───── 오프닝 ─────
   {
     color: 'white', category: 'opening', name: '이탈리안 게임',
-    description: 'e4 e5 Nf3 Nc6 Bc4. 현대적 주류는 c3·d3의 느린 지오코 피아니시모. 투 나이츠·에반스 갬빗 포함.',
-    related: ['페트로프 디펜스', '스타포드 갬빗', '루이 로페즈', '스카치 게임'],
+    description: 'e4 e5 Nf3 Nc6 Bc4. 현대적 주류는 c3·d3의 느린 지우코 피아니시모. 투 나이트·에반스 갬빗 포함.',
+    related: ['페트로프 디펜스', '스태포드 갬빗', '루이 로페즈', '스카치 게임'],
     lines: [
       'e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 O-O O-O a4 a6 Re1 Ba7 h3',
       'e4 e5 Nf3 Nc6 Bc4 Nf6 d3 Bc5 c3 d6 O-O O-O Nbd2 a6 Bb3 Ba7 Re1',
@@ -86,8 +86,8 @@ export const WHITE: Seed[] = [
       'e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O d6 cxd4 Bb6',
     ],
     comments: {
-      'e4 e5 Nf3 Nc6 Bc4 Bc5 c3': '지오코 피아니시모. 급하게 d4를 치지 않고 d3, O-O, Re1, Nbd2 후 천천히 d4를 준비한다.',
-      'e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5': '투 나이츠 디펜스에 대한 날카로운 4.Ng5. f7을 노린다.',
+      'e4 e5 Nf3 Nc6 Bc4 Bc5 c3': '지우코 피아노 메인 라인(4.c3). 급하게 d4를 치지 않고 d3, O-O, Re1, Nbd2 후 천천히 d4를 준비한다(d3를 먼저 두면 지우코 피아니시모).',
+      'e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5': '투 나이트 디펜스에 대한 날카로운 4.Ng5. f7을 노린다.',
       'e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5': '흑의 정석적 응수. 폰 하나를 내주고 주도권을 잡는다.',
       'e4 e5 Nf3 Nc6 Bc4 Bc5 b4': '에반스 갬빗. 폰을 내주고 c3·d4로 중앙을 빠르게 장악한다.',
     },
@@ -95,7 +95,7 @@ export const WHITE: Seed[] = [
   {
     color: 'white', category: 'opening', name: '루이 로페즈',
     description: 'e4 e5 Nf3 Nc6 Bb5. 클로즈드(브레이어), 베를린, 마셜, 익스체인지, 슐리만 등 가장 이론이 깊은 오프닝.',
-    related: ['페트로프 디펜스', '스타포드 갬빗', '이탈리안 게임'],
+    related: ['페트로프 디펜스', '스태포드 갬빗', '이탈리안 게임'],
     lines: [
       'e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 d6 c3 O-O h3 Nb8 d4 Nbd7',
       'e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Nxe5 Rxe5 c6 d4 Bd6 Re1 Qh4 g3 Qh3',
@@ -147,7 +147,7 @@ export const WHITE: Seed[] = [
     },
   },
   {
-    color: 'white', category: 'opening', name: '포 나이츠 게임',
+    color: 'white', category: 'opening', name: '포 나이트 게임',
     description: 'e4 e5 Nf3 Nc6 Nc3 Nf6. 스페인식(Bb5), 스카치식(d4), 이탈리안식(Bc4), 글렉(g3).',
     related: ['페트로프 디펜스', '루이 로페즈', '스카치 게임'],
     lines: [
@@ -157,14 +157,14 @@ export const WHITE: Seed[] = [
       'e4 e5 Nf3 Nc6 Nc3 Nf6 g3 d5 exd5 Nxd5 Bg2 Nxc3 bxc3 Bd6 O-O O-O',
     ],
     comments: {
-      'e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5': '스페인 포 나이츠. 대칭 구조에서 Bg5·Nd8-e6 재배치가 핵심.',
-      'e4 e5 Nf3 Nc6 Nc3 Nf6 d4': '스카치 포 나이츠. 열린 중앙과 빠른 전개.',
+      'e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5': '스패니시 포 나이트. 대칭 구조에서 Bg5·Nd8-e6 재배치가 핵심.',
+      'e4 e5 Nf3 Nc6 Nc3 Nf6 d4': '스카치 포 나이트. 열린 중앙과 빠른 전개.',
       'e4 e5 Nf3 Nc6 Nc3 Nf6 Bc4': 'Nxe4! 포크 트릭으로 흑이 쉽게 균형을 잡는다.',
     },
   },
   {
-    color: 'white', category: 'opening', name: '센터 게임 & 데니시 갬빗',
-    description: 'e4 e5 d4 exd4. Qxd4(센터 게임) 또는 c3 갬빗(데니시). 빠른 전개와 열린 선을 노린다.',
+    color: 'white', category: 'opening', name: '센터 게임 & 대니쉬 갬빗',
+    description: 'e4 e5 d4 exd4. Qxd4(센터 게임) 또는 c3 갬빗(대니쉬). 빠른 전개와 열린 선을 노린다.',
     related: ['페트로프 디펜스', '킹즈 갬빗'],
     lines: [
       'e4 e5 d4 exd4 Qxd4 Nc6 Qe3 Nf6 Nc3 Bb4 Bd2 O-O O-O-O Re8 Bc4 d6',
@@ -173,7 +173,7 @@ export const WHITE: Seed[] = [
     ],
     comments: {
       'e4 e5 d4 exd4 Qxd4': '센터 게임. 퀸이 일찍 나와 템포를 잃지만 Qe3·O-O-O로 반대편 캐슬링 공격을 노린다.',
-      'e4 e5 d4 exd4 c3': '데니시 갬빗. 폰 두 개를 내주고 Bc4·Bb2 두 비숍으로 킹사이드를 겨눈다.',
+      'e4 e5 d4 exd4 c3': '대니쉬 갬빗. 폰 두 개를 내주고 Bc4·Bb2 두 비숍으로 킹사이드를 겨눈다.',
       'e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 d5': '폰을 돌려주는 정석 해법. 단순화 후 흑이 편하다.',
       'e4 e5 d4 exd4 c3 d5': '갬빗 거절. 즉시 중앙을 열어 백의 공격 구조를 무력화한다.',
     },
@@ -186,15 +186,25 @@ export const WHITE: Seed[] = [
       'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bd6 d4 Nh5 O-O',
       'e4 e5 f4 exf4 Nf3 d6 d4 g5 h4 g4 Ng1',
       'e4 e5 f4 exf4 Nf3 d5 exd5 Nf6 Bc4 Nxd5 O-O Be7 d4 O-O',
+      'e4 e5 f4 exf4 Nf3 Nf6 e5 Nh5 d4 d6 Qe2 Be7 exd6 Qxd6 Qb5+',
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+ Kf1',
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Nf6 e5 Ng4',
+      'e4 e5 f4 exf4 Nf3 h6 d4 g5 Nc3 Bg7 g3 fxg3 hxg3 d6',
       'e4 e5 f4 exf4 Bc4 Nf6 Nc3 c6 Bb3 d5 exd5 cxd5 d4',
       'e4 e5 f4 Bc5 Nf3 d6 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3',
       'e4 e5 f4 d5 exd5 e4 d3 Nf6 dxe4 Nxe4 Nf3 Bc5 Qe2',
     ],
     comments: {
       'e4 e5 f4': '킹즈 갬빗. 폰을 내주고 d4·f파일을 얻는다. 수락(exf4), 고전적 거절(Bc5), 팔크비어(d5)가 주된 응수.',
-      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5': '키제리츠키 갬빗. 나이트가 e5에서 g4·f7을 노린다. 가장 이론적인 메인.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5': '키세리츠키 갬빗. 나이트가 e5에서 g4·f7을 노린다. 가장 이론적인 메인.',
       'e4 e5 f4 exf4 Nf3 d6': '피셔 디펜스. g5 전에 d6를 두어 Ne5를 막는다. 백은 d4·h4로 압박한다.',
       'e4 e5 f4 exf4 Nf3 d5': '모던 디펜스. 폰을 돌려주고 빠르게 전개해 백의 공격을 무디게 한다.',
+      'e4 e5 f4 exf4 Nf3 Nf6': '샬로프 디펜스. ...Nh5로 f4 폰을 지키려 한다. 4.e5 Nh5 5.d4가 일반적. 5...d6 6.Qe2 Be7?는 7.exd6 Qxd6 8.Qb5+로 h5 나이트를 잃는다(정확한 수는 6...d5).',
+      'e4 e5 f4 exf4 Nf3 Be7': '커닝햄 디펜스. ...Bh4+로 캐슬링을 막으려 한다. 4.Bc4로 Ke2를 피하는 것이 가장 인기 있다.',
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+': '4...Bh4+ 5.Kf1. 5.g3 fxg3 6.O-O gxh2+ 7.Kh1이면 버틴 갬빗.',
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Nf6': '모던 커닝햄. 현대에는 4...Nf6 5.e5 Ng4로 전개하는 일이 많다. 5...Ne4!?는 오이베 바리에이션.',
+      'e4 e5 f4 exf4 Nf3 h6': '베커 디펜스. h6–g5–f4 폰 사슬로 f4를 지키며 4.h4를 피한다. 메인 라인은 4.d4 g5.',
+      'e4 e5 f4 exf4 Nf3 h6 d4 g5 Nc3 Bg7 g3': '베커의 독자 라인 6.g3 fxg3 7.hxg3 d6. 다른 라인과 달리 h6 폰이 ...fxg3 뒤의 Bxg5를 막는다.',
       'e4 e5 f4 exf4 Bc4': '비숍스 갬빗. Qh4+를 허용하지만 Kf1 후 템포를 얻어 공격한다.',
       'e4 e5 f4 Bc5': '고전적 거절. fxe5는 Qh4+로 벌을 받으므로 c3·d4로 비숍을 쫓는다.',
       'e4 e5 f4 d5': '팔크비어 카운터갬빗. e4 폰을 박아 백의 전개를 방해한다. d3로 풀어 준다.',
@@ -203,7 +213,7 @@ export const WHITE: Seed[] = [
   {
     color: 'white', category: 'opening', name: '퀸즈 갬빗',
     description: 'd4 d5 c4. QGD 정통·익스체인지·Bf4·케임브리지 스프링스, QGA, 타라시까지 기본 셋업.',
-    related: ['슬라브 디펜스', '세미슬라브 디펜스', '부다페스트 갬빗', '카탈란'],
+    related: ['슬라브 디펜스', '세미 슬라브 디펜스', '부다페스트 갬빗', '카탈란 오프닝'],
     lines: [
       'd4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3 O-O Nf3 Nbd7 Rc1 c6 Bd3 dxc4 Bxc4 Nd5',
       'd4 d5 c4 e6 Nc3 Nf6 cxd5 exd5 Bg5 Be7 e3 c6 Bd3 Nbd7 Qc2 O-O Nge2 Re8 O-O Nf8',
@@ -224,7 +234,7 @@ export const WHITE: Seed[] = [
     },
   },
   {
-    color: 'white', category: 'opening', name: '카탈란',
+    color: 'white', category: 'opening', name: '카탈란 오프닝',
     description: 'd4 Nf6 c4 e6 g3 d5 Bg2. 퀸즈 갬빗과 피앙케토를 결합해 긴 대각선으로 퀸사이드를 압박한다.',
     related: ['퀸즈 인디언 디펜스', '보고 인디언 디펜스', '퀸즈 갬빗'],
     lines: [
@@ -275,7 +285,7 @@ export const WHITE: Seed[] = [
   {
     color: 'white', category: 'attack', name: '스미스-모라 갬빗',
     description: '시실리안에 대한 d4·c3 갬빗. 폰 하나로 빠른 전개와 c·d파일 룩 압박을 얻는다.',
-    related: ['시실리안 나이도르프', '시실리안 스베시니코프 & 드래곤', '시실리안 e6 계열', '안티 시실리안 대응'],
+    related: ['시실리안 나이도프', '시실리안 스베시니코프 & 드래곤', '시실리안 e6 계열', '안티 시실리안 대응'],
     lines: [
       'e4 c5 d4 cxd4 c3 dxc3 Nxc3 Nc6 Nf3 d6 Bc4 e6 O-O Nf6 Qe2 Be7 Rd1 e5 Be3 O-O',
       'e4 c5 d4 cxd4 c3 Nf6 e5 Nd5 cxd4 d6 Nf3 Nc6 Bc4 Nb6 Bb5',
@@ -289,20 +299,46 @@ export const WHITE: Seed[] = [
     },
   },
   {
-    color: 'white', category: 'attack', name: 'ICBM 갬빗',
-    description: '스칸디나비안 Qa5에 대한 4.b4. 폰을 던져 퀸을 쫓고 b파일 룩과 빠른 전개를 얻는 기습 갬빗.',
-    related: ['스칸디나비안 디펜스'],
+    color: 'white', category: 'attack', name: '테니슨 갬빗',
+    description: 'Nf3 d5 e4. 레티 오프닝에서 파생되는 갬빗(스칸디나비안 e4 d5 Nf3로도 전환). 폰을 내주고 Ng5로 e4 폰과 f7을 노린다. 정확히 받으면 흑이 낫지만 함정이 많은 기습용.',
+    related: ['킹즈 인디언 어택 & 레티', '스칸디나비안 디펜스', 'ICBM 갬빗'],
     lines: [
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qxb4 Rb1 Qd6 d4 Nf6 Nb5 Qd8 Bf4 Na6 Nf3 c6 Nc3',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qxb4 Rb1 Qa5 Rb5 Qa6 d4 Nf6 Nf3 e6 Bd3',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qxb4 Rb1 Qb6 d4 Nf6 Nf3 e6 Bd3',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qb6 a4 Nf6 a5 Qd6 Nf3',
+      'Nf3 d5 e4 dxe4 Ng5 e5 Nxe4 f5 Ng3 Nc6 Bb5 Ne7 O-O a6 Bc4 b5 Bb3 Nd4',
+      'Nf3 d5 e4 dxe4 Ng5 e5 Nxe4 f5 Ng3 f4 Qh5+ g6 Qxe5+ Qe7 Qxe7+ Nxe7 Ne2',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Bc4 e6 Nc3 Be7 Ncxe4 Nxe4 Nxe4 O-O d4',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Nc3 Bf5 Qe2 Qd4 Qb5+ Bd7 Qxb7 Bc6 Bb5 Qd7 Bxc6 Qxc6 Qc8#',
+      'Nf3 d5 e4 dxe4 Ng5 Bf5 Nc3 Nf6 Bc4 e6 f3 exf3 Qxf3 h6 Nxf7 Kxf7 Qxf5',
+      'Nf3 d5 e4 dxe4 Ng5 f5 Bc4 Nh6 Nxh7 Rxh7 Qh5+ Kd7 Qg6 Rh8 Be6+ Kc6 Bxc8+ Qd6 Qe8+ Kb6 Qa4',
     ],
     comments: {
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4': 'ICBM 갬빗. 폰 하나로 퀸을 세 번 이상 움직이게 하고 Rb1·Nb5·Bf4로 c7을 노린다. 건전성보다 기습이 목적.',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qxb4 Rb1 Qd6 d4 Nf6 Nb5': 'Nc7+ 위협. 퀸이 d8로 돌아가면 Bf4로 다시 압박한다.',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qxb4 Rb1 Qa5 Rb5': '룩이 퀸을 쫓으며 b7·전개 템포를 번다.',
-      'e4 d5 exd5 Qxd5 Nc3 Qa5 b4 Qb6': '갬빗 거절. a4-a5로 계속 퀸을 쫓는다.',
+      'Nf3 d5 e4': '테니슨 갬빗. 레티의 1...d5에 e폰을 던지는 기습. 흑은 2...dxe4로 받는 것이 일반적이고, 2...e6(프렌치)·2...c6(카로칸)로 거절하며 전위할 수도 있다.',
+      'Nf3 d5 e4 dxe4 Ng5': '3.Ng5. 공격받은 나이트로 e4 폰을 다시 노리며 f7을 겨눈다. 흑의 응수는 3...e5(폰 반환), 3...Nf6, 3...Bf5(폰 유지), 3...f5.',
+      'Nf3 d5 e4 dxe4 Ng5 e5': '3...e5. 폰을 돌려주고 나이트를 쫓으며 전개하는 가장 무난한 응수. 4.Nxe4 f5 5.Ng3 Nc6 6.Bb5 Ne7 7.O-O a6 8.Bc4 b5 9.Bb3 Nd4면 흑이 주도권을 잡는다.',
+      'Nf3 d5 e4 dxe4 Ng5 e5 Nxe4 f5 Ng3 f4': '5...f4?!는 과욕. 6.Qh5+로 캐슬링을 막는다. 6...g6는 7.Qxe5+ Qe7 8.Qxe7+ Nxe7 9.Ne2로 f4 폰을 잃고, 6...Kd7은 킹이 중앙에 묶인다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Bc4': '3...Nf6 4.Bc4. 객관적으로 백의 최선. f7을 지키는 4...e6는 c8 비숍을 가두고, 5.Nc3 Be7 6.Ncxe4 Nxe4 7.Nxe4 O-O 8.d4로 폰을 되찾으며 공간 우위를 얻는다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Nc3': '4.Nc3. 가장 많이 두는 수. 4.d3로 가는 함정 라인은 ICBM 갬빗 참고.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Nc3 Bf5 Qe2 Qd4': '5...Qd4?? 10수 체크메이트 트랩. 6.Qb5+ Bd7 7.Qxb7로 b7과 a8을 노린다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 Nc3 Bf5 Qe2 Qd4 Qb5+ Bd7 Qxb7 Bc6 Bb5': 'Bb5로 c6 비숍을 핀. Qd7로 풀려 하면 Bxc6 Qxc6?? Qc8#로 체크메이트.',
+      'Nf3 d5 e4 dxe4 Ng5 Bf5': '3...Bf5. 엔진이 선호하는 응수. 비숍으로 e4를 지켜 폰을 유지한다. 4.Nc3 Nf6 5.Bc4 e6 6.f3!로 f파일을 열며 다시 갬빗한다.',
+      'Nf3 d5 e4 dxe4 Ng5 Bf5 Nc3 Nf6 Bc4 e6 f3 exf3 Qxf3 h6': '7...h6?는 8.Nxf7! Kxf7 9.Qxf5. Bc4가 e6 폰을 핀해 재탈환이 불가능하다.',
+      'Nf3 d5 e4 dxe4 Ng5 f5': '3...f5. 폰으로 지키지만 h5-e8 대각선이 약해지고 전개도 늦다. 4.Bc4로 f7을 압박한다. 이 라인은 테니슨 본인의 1891년 실전(vs NN).',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: 'ICBM 갬빗',
+    description: 'Nf3 d5 e4 dxe4 Ng5 Nf6 d3. 레티에서 파생되는 테니슨 갬빗의 함정 라인. 5...h6??면 Nxf7!! Kxf7 Bg6+!! Kxg6 Qxd8로 퀸을 잡는다. 백 퀸이 미사일처럼 판을 가로지른다고 대륙간탄도미사일(ICBM) 갬빗이라 부른다.',
+    related: ['테니슨 갬빗'],
+    lines: [
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6 Nxf7 Kxf7 Bg6+ Kxg6 Qxd8 e5 Qd3+',
+    ],
+    comments: {
+      'Nf3 d5 e4': '테니슨 갬빗. 레티에서 e폰을 던지는 기습이다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3': '4.d3?! 폰을 하나 더 내주고 exd3 Bxd3로 비숍·나이트·퀸을 킹사이드로 겨눈다. 5.Bxd3 뒤 h7을 비숍과 나이트가 함께 노린다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6': '5...h6?? 나이트를 쫓으려다 걸리는 함정. h폰이 h7을 떠나 이후 Bg6+에 hxg6가 불가능해진다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6 Nxf7': '6.Nxf7!! 나이트가 퀸과 h8 룩을 동시에 포크한다. 잡지 않으면 룩을 잃는다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6 Nxf7 Kxf7 Bg6+': '7.Bg6+!! 비숍이 d파일을 열며 체크. Kxg6 뒤 Qxd8로 d8의 퀸을 잡는다.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6 Nxf7 Kxf7 Bg6+ Kxg6 Qxd8': '8.Qxd8. 나이트와 비숍을 내주고 퀸과 f7 폰을 얻는다. 단, 흑의 8...e5!에 주의.',
+      'Nf3 d5 e4 dxe4 Ng5 Nf6 d3 exd3 Bxd3 h6 Nxf7 Kxf7 Bg6+ Kxg6 Qxd8 e5': '8...e5! 다음 ...Bb4+ 디스커버드 어택으로 d8의 퀸을 노린다. 백은 Qd3+(또는 Qd1)로 곧바로 물러나야 한다. 9.Qxc8??은 Bb4+ c3 Rxc8로 퀸을 잃어 이점이 사라진다.',
     },
   },
   {
@@ -320,6 +356,144 @@ export const WHITE: Seed[] = [
       'e4 c6 d4 d5 Nc3 dxe4 Nxe4 Nf6 Ng5 h6 Nxf7': '나이트 희생. 킹을 f7로 끌어낸 뒤 Nf3-e5+, Bd3, Qh5·Qe2로 공격한다. 객관적 평가는 흑 우세에 가까우므로 기습용.',
       'e4 c6 d4 d5 Nc3 dxe4 Nxe4 Nf6 Ng5 e6': '희생을 피하는 견실한 응수. 백은 정상적인 카로칸 구조로 돌아간다.',
       'e4 c6 d4 d5 Nc3 dxe4 Nxe4 Nf6 Ng5 Bf5': '비숍 교환 후 N1f3로 전개. 두 나이트 표기(N1f3)에 주의.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '비숍스 갬빗',
+    description: 'e4 e5 f4 exf4 Bc4. 나이트 대신 비숍을 먼저 꺼내 Qh4+에는 Kf1로 응수한다. 킹즈 갬빗 수락에서 3.Nf3 다음으로 실전에서 쓰이며, 고레이팅에서는 승률이 더 높다.',
+    related: ['킹즈 갬빗', '버틴 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Bc4 Nf6 Nc3 c6 Bb3 d5 exd5 cxd5 d4 Bd6 Nge2',
+      'e4 e5 f4 exf4 Bc4 Qh4+ Kf1 d6 Nf3',
+      'e4 e5 f4 exf4 Bc4 d5 Bxd5 Nf6 Nc3 Bb4 Nf3 Bxc3 dxc3 c6 Bc4 Qxd1+ Kxd1 O-O Bxf4 Nxe4',
+      'e4 e5 f4 exf4 Bc4 Nc6 Nf3 g5 d4 Bg7 c3 d6 O-O h6',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Bc4': '비숍스 갬빗. Qh4+를 맞고 캐슬링을 포기하는 대신 흑의 d5를 막고 Nf3로 퀸을 쫓아 템포를 번다. 현대에는 흑이 3...Nf6·3...Nc6·3...d5로 퀸 체크를 피하는 쪽이 더 많다.',
+      'e4 e5 f4 exf4 Bc4 Nf6': '3...Nf6 코지오 디펜스. 코르치노이·작이 흑 최선으로 꼽는다. 4.Nc3 c6(보골류보프 디펜스) 5.Bb3 d5 6.exd5 cxd5 7.d4 Bd6 8.Nge2가 메인 라인.',
+      'e4 e5 f4 exf4 Bc4 Qh4+': '3...Qh4+ 4.Kf1. 캐슬링은 잃지만 Nf3 템포로 만회한다(4.g3??는 fxg3로 킹사이드가 무너진다). 4...d6은 코지오 바리에이션이다. 안데르센의 임모탈 게임(1851)이 이 오프닝이다.',
+      'e4 e5 f4 exf4 Bc4 d5': '3...d5 블레도우 바리에이션. 폰을 곧바로 돌려주며 전개한다. 4.Bxd5 Nf6 5.Nc3 Bb4 6.Nf3 Bxc3 7.dxc3 c6 8.Bc4 Qxd1+ 9.Kxd1 O-O 10.Bxf4 Nxe4로 동등하다.',
+      'e4 e5 f4 exf4 Bc4 Nc6': '3...Nc6 마우리안 디펜스. 4.Nf3 g5 5.d4 Bg7 6.c3 d6 7.O-O h6이면 핸슈타인 갬빗과 같은 국면. 존 쇼는 흑이 모든 변화에서 낫다고 본다.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '키세리츠키 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5. 4.h4로 g5 폰 사슬을 무너뜨리고 나이트를 e5로 올린다. 킹즈 나이트 갬빗 3...g5의 메인 라인이며 평가는 대략 동등.',
+    related: ['킹즈 갬빗', '알가이어 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4 d5 exd5 Bd6 d4 Nh5 O-O Qxh4 Qe1 Qxe1 Rxe1 O-O Bb3 Bf5',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 d6 Nxg4 Nf6 Nxf6+ Qxf6',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 d4 d6 Nd3 Nxe4 Bxf4 Bg7 c3',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 h5 Bc4 Rh7 d4 Bh6 Nc3',
+      'e4 e5 f4 exf4 Nf3 g5 h4 f6 Nxg5 fxg5 Qh5+ Ke7 Qxg5+ Nf6 e5',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 h4': '4.h4. g5 폰을 공격해 ...h6·...Bg7 폰 사슬을 막고 ...Qh4+ 위협도 없앤다. 흑은 사실상 4...g4뿐이다. 4...gxh4는 f·h 폰이 고립돼 백이 유리하다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 f6': '4...f6?는 5.Nxg5!! fxg5 6.Qh5+ Ke7 7.Qxg5+ Nf6 8.e5로 나이트를 되찾으며 킹을 공격한다. 7...Ke8이면 8.Qe5+ 킹·룩 포크로 흑이 크게 불리하다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5': '키세리츠키 갬빗. 3...g5 클래시컬의 메인 라인으로 마스터 레벨에서 킹즈 갬빗 전체를 통틀어 가장 많이 두어진다. 1960년 스파스키가 이 갬빗으로 피셔를 꺾었고, 피셔는 이후 3...d6(피셔 디펜스)을 내놓았다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6': '5...Nf6 베를린 디펜스. e4를 노리는 가장 흔한 응수. 6.Bc4 d5 7.exd5 Bd6 8.d4 Nh5가 메인 라인이고, 9.O-O Qxh4 10.Qe1 Qxe1 11.Rxe1 뒤 대략 동등하다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 d4': '6.d4. 6...d6 7.Nd3 Nxe4 8.Bxf4 Bg7 9.c3으로 중앙이 열리는 또 다른 주요 진행.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 d6': '5...d6 Kolisch 디펜스. 6.Nxg4 Nf6 7.Nxf6+ Qxf6로 폰을 돌려주고 빠르게 전개하는 흑의 건전한 대안.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 h5': '5...h5?! Long Whip 바리에이션. 폰을 지키려다 전개가 크게 늦어 구식이며 위험하다. 6.Bc4 Rh7 7.d4 Bh6 8.Nc3은 Jaenisch 바리에이션으로 불린다.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '알가이어 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5. 5.Ng5 h6 6.Nxf7로 나이트를 희생해 킹을 f7로 끌어내는 갬빗. 보상이 부족하다고 평가돼 마스터 레벨에서는 쓰이지 않는다.',
+    related: ['킹즈 갬빗', '키세리츠키 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 Bc4+ d5 Bxd5+ Kg7 d4',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 d4 d5 Bxf4 dxe4 Bc4+ Kg7 Be5+',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 f6 Qxg4',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5': '알가이어 갬빗. 5.Ng5는 나이트 희생을 전제로 한다. 5...h6면 나이트가 갈 곳이 없어 6.Nxf7로 가야 한다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7': '6.Nxf7 Kxf7. 코터 갬빗으로도 불렸다. 킹을 끌어내지만 나이트 값만큼의 보상은 받지 못한다고 본다.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 Bc4+': '7.Bc4+ d5 8.Bxd5+ Kg7 9.d4. Urusov Attack.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 h6 Nxf7 Kxf7 d4': '7.d4. Thorold Attack. 7...d5 8.Bxf4 dxe4 9.Bc4+ Kg7 10.Be5+는 Cook 바리에이션.',
+      'e4 e5 f4 exf4 Nf3 g5 h4 g4 Ng5 f6': '5...f6?는 블런더. 6.Qxg4!로 백의 강한 공격이 이어진다. 서로 정확히 두면 백이 유리하다.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '무지오 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O. 나이트를 통째로 내주고 룩·퀸·비숍을 f7에 겨누는 낭만주의 갬빗. 엔진은 흑이 낫다고 보지만 정확히 막기는 까다롭다. 마스터 레벨에서는 흑이 4...Bg7로 피하는 쪽이 더 흔하다.',
+    related: ['킹즈 갬빗', '롤리 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 d3 Bh6 Nc3 Ne7 Bd2 Nbc6 Rae1 Qf5',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+ Kxf7 d4 Qf5',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+ Kxf7 d4 Qxd4+ Be3',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 Bg7 d4 d6 O-O h6 c3 Nc6',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 Bc4': '4.Bc4. f1을 비워 Qh4+에 대비하고 f7을 겨눈다. 4...g4면 무지오 갬빗, 4...Bg7이면 트래디셔널(핸슈타인) 라인.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4': '4...g4가 엔진 최선이지만 무지오를 인간이 받아내기는 어렵다. 5.Ne5(살비오 갬빗)는 Qh4+ 6.Kf1로 흑이 낫다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O': '5.O-O! 무지오 갬빗. 흑이 나이트를 공격해도 무시하고 캐슬링한다. gxf3 Qxf3로 나이트를 내주는 대신 퀸·룩·비숍이 f7을 겨눈다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6': '6...Qf6. f7 공격을 막는 가장 흔한 수비. 7.e5 Qxe5 8.d3이 메인 라인(8.Bxf7+!?는 더블 무지오).',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 d3 Bh6 Nc3 Ne7 Bd2 Nbc6 Rae1 Qf5': '11...Qf5! 파울센 바리에이션. 흑이 낫다고 평가되며, 백은 나이트를 잃은 보상을 얻기 어렵다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+': '8.Bxf7+!? 더블 무지오 갬빗. 비숍까지 희생해 킹을 끌어낸다. 엔진 평가는 약 -1.7~-1.8로 최선은 아니다. 8...Kxf7 뒤 9.d4가 거의 필수.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+ Kxf7 d4 Qf5': '9...Qf5! 흑이 폰에 욕심내지 않고 수비하는 현대적 대응. 이 수 때문에 더블 무지오의 평가가 크게 낮아졌다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Qf6 e5 Qxe5 Bxf7+ Kxf7 d4 Qxd4+ Be3': '9...Qxd4+ 10.Be3. 옛 메인 라인. 흑이 마이너 피스 둘을 앞선 만큼 폰을 먹기보다 9...Qf5로 막는 편이 낫다고 알려졌다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 Bg7': '4...Bg7. 무지오를 거부하는 트래디셔널 라인. 마스터 레벨에서는 무지오보다 많이 두어지고 흑 승률도 더 좋다. 5.d4 d6 6.O-O h6 7.c3 Nc6이 핸슈타인 갬빗.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '롤리 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+. 비숍을 희생해 킹을 f7로 끌어내는 갬빗. 나이트를 내주는 무지오보다 보상이 부족하다고 평가되며 마스터 레벨에서는 쓰이지 않는다.',
+    related: ['킹즈 갬빗', '무지오 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 O-O gxf3 Qxf3 Qf6 d4 Qxd4+ Be3 Qf6 Nc3',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 O-O gxf3 Qxf3 Qf6 d4 Qxd4+ Be3 Qf6 Bxf4',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 Ne5+ Ke8 Qxg4 Nf6 Qxf4 d6',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+': '5.Bxf7+?! 롤리 갬빗. 5...Kxf7이 최선이다. 5...Ke7는 퀸·비숍 길이 막혀 나쁘다(6.Bb3 gxf3면 엔진은 백이 약 2점 유리).',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 O-O': '6.O-O gxf3 7.Qxf3 Qf6 8.d4 Qxd4+ 9.Be3 Qf6 10.Nc3(영 바리에이션). 무지오처럼 나이트까지 내준다. 지금은 흑이 7...Qf6이나 8...Qxd4+ 대신 ...Bh6으로도 막을 수 있어 이 라인을 그대로 따르는 실전은 거의 없다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 O-O gxf3 Qxf3 Qf6 d4 Qxd4+ Be3 Qf6 Bxf4': '10.Bxf4. 10.Nc3 대신 이쪽이 낫다고 본다.',
+      'e4 e5 f4 exf4 Nf3 g5 Bc4 g4 Bxf7+ Kxf7 Ne5+': '6.Ne5+ Ke8 7.Qxg4 Nf6 8.Qxf4 d6. 나이트를 살리며 공격을 이어 가지만 비숍 값만큼의 보상은 없다.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '쿼드 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 Nc3. 4.h4보다 덜 연구된 4번째 수로, 존 쇼가 4.Bc4보다 낫다며 권해 주목받았다. 4...g4 5.Ne5 Qh4+ 6.g3 fxg3 7.Qxg4의 함정으로 유명하다.',
+    related: ['킹즈 갬빗', '로젠트레터 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 g4 Ne5 Qh4+ g3 fxg3 Qxg4 Qxg4 Nxg4 d5',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 g4 Ne5 Qh4+ g3 fxg3 Qxg4 g2+ Qxh4 gxh1=Q Qh5 Nh6 d4 d6 Bxh6 dxe5 Qxe5+ Be6 Qxh8 Nd7 Bxf8 O-O-O',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 Bg7 d4 g4 Bxf4 gxf3',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 Nc3': '쿼드 갬빗. 존 쇼가 2013년 저서에서 4.h4의 덜 연구된 대안이자 4.Bc4보다 낫다고 권했다. 4...d6은 피셔 디펜스, 4...h6은 베커 디펜스로 이행한다. 4...Nc6(사케프 추천)도 가능하다.',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 g4 Ne5 Qh4+ g3 fxg3 Qxg4': '7.Qxg4. 흑은 7...Qxg4 8.Nxg4 d5로 대략 동등하다. 7...g2+?는 함정이다.',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 g4 Ne5 Qh4+ g3 fxg3 Qxg4 g2+': '7...g2+?는 룩 하나와 승급을 노린 악수. 8.Qxh4 gxh1=Q 9.Qh5!로 f7에 위협을 걸면 백이 거의 이긴다.',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 g4 Ne5 Qh4+ g3 fxg3 Qxg4 g2+ Qxh4 gxh1=Q Qh5': '9.Qh5! 흑 최선은 9...Nh6 10.d4 d6 11.Bxh6 dxe5 12.Qxe5+ Be6 13.Qxh8 Nd7 14.Bxf8 O-O-O로, 백이 폰 하나를 더 가진다.',
+      'e4 e5 f4 exf4 Nf3 g5 Nc3 Bg7': '4...Bg7. 흑에게 권해지는 안전한 응수. 5.d4 g4 6.Bxf4 gxf3면 나이트를 내줬지만 백이 강한 공격을 얻는다(사이먼 윌리엄스 추천).',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '로젠트레터 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 g5 d4. 4.d4로 f4 폰을 곧바로 노리며 d4–e4 중앙을 먼저 세운다. 4...g4 5.Ne5 Qh4+ 6.g3 fxg3 7.Qxg4 뒤 퀸 교환으로 흑이 다소 편해져 백에게는 선호되지 않는다.',
+    related: ['킹즈 갬빗', '쿼드 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5 Qh4+ g3 fxg3 Qxg4 Qxg4 Nxg4',
+      'e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5 Qh4+ g3 fxg3 Qxg4 g2+ Qxh4 gxh1=Q Nc3',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 g5 d4': '로젠트레터 갬빗. 킹즈 갬빗의 f폰 희생 아이디어(d4–e4 중앙)를 곧바로 가져간다. 흑은 d6·Bg7·h6도 둘 수 있지만 보통 4...g4다.',
+      'e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5': '5.Ne5(쇠렌센 갬빗). 무지오처럼 나이트를 희생할 수도 있지만 보통 이 수를 둔다. 5...Qh4+ 6.g3 fxg3 7.Qxg4는 강제.',
+      'e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5 Qh4+ g3 fxg3 Qxg4 Qxg4 Nxg4': '7...Qxg4 8.Nxg4. 퀸을 바꾼 뒤 흑이 다소 편하고 백은 공격을 이어 가기 어렵다.',
+      'e4 e5 f4 exf4 Nf3 g5 d4 g4 Ne5 Qh4+ g3 fxg3 Qxg4 g2+': '7...g2+!?는 e4 폰이 위협받아 가능해진다. 8.Qxh4 gxh1=Q 뒤 쇼는 9.Nc3을 권하며 복잡한 국면이다.',
+    },
+  },
+  {
+    color: 'white', category: 'attack', name: '버틴 갬빗',
+    description: 'e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+ g3. 커닝햄 디펜스의 4...Bh4+에 g3로 폰 셋(f·g·h)을 내주고 캐슬링하는 19세기 갬빗. 엔진은 대략 동등으로 본다.',
+    related: ['킹즈 갬빗', '비숍스 갬빗'],
+    lines: [
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+ g3 fxg3 O-O gxh2+ Kh1',
+    ],
+    comments: {
+      'e4 e5 f4 exf4 Nf3 Be7': '커닝햄 디펜스. ...Bh4+로 캐슬링을 막으려 한다. 백은 4.Bc4로 Ke2를 피하는 것이 가장 인기 있다.',
+      'e4 e5 f4 exf4 Nf3 Be7 Bc4 Bh4+ g3': '5.g3 fxg3 6.O-O gxh2+ 7.Kh1. 5.Kf1로 피하는 대신 폰 셋을 내준다. 노림수는 f파일이 열린 채로 Bxf7+ Kxf7 Ng5+ 더블 체크를 거는 것이며, 흑의 7번째 수에 따라 성립 여부가 갈린다.',
     },
   },
 ]
