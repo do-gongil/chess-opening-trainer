@@ -50,6 +50,7 @@ const ko = {
   engineLabel: '엔진 분석 (Stockfish 18 lite)',
   depth: (d: number) => `깊이 ${d}`,
   analyzing: '분석 중…',
+  engineMissing: '이 배포본에는 엔진 파일이 없어 분석을 쓸 수 없습니다. 저장소 README의 엔진 배치를 따라 로컬에서 쓰세요.',
 
   drillTitle: (name: string) => `${name} 훈련`,
   startPosition: '시작 국면',
@@ -114,6 +115,7 @@ const en: Messages = {
   engineLabel: 'Engine analysis (Stockfish 18 lite)',
   depth: (d) => `depth ${d}`,
   analyzing: 'Analyzing…',
+  engineMissing: 'The engine files are not part of this deployment, so analysis is unavailable. Follow the engine setup in the repository README to use it locally.',
 
   drillTitle: (name) => `${name} drill`,
   startPosition: 'Start position',

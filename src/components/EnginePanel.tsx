@@ -1,5 +1,5 @@
 import { Chess } from 'chess.js'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Eval } from '../engine/stockfish'
 import { useI18n } from '../i18n'
 
@@ -31,14 +31,23 @@ function toSan(fen: string, pv: string[]) {
 }
 
 export function EnginePanel({ fen, ev, on, setOn }: Props) {
+  const [available, setAvailable] = useState(true)
+  // 엔진 파일(public/engine/)은 GPLv3라 저장소에 없다. 없으면 Worker가 영원히 응답하지 않으므로 체크박스를 막는다.
+  // dev 서버는 없는 파일에도 index.html을 200으로 돌려주므로 text/html 은 없는 것으로 본다.
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}engine/stockfish-18-lite-single.js`, { method: 'HEAD' })
+      .then((r) => setAvailable(r.ok && !r.headers.get('content-type')?.includes('text/html')))
+      .catch(() => setAvailable(false))
+  }, [])
   const { m } = useI18n()
   const pv = useMemo(() => (ev ? toSan(fen, ev.pv) : []), [fen, ev])
   return (
     <section className="panel">
       <label>
-        <input type="checkbox" checked={on} onChange={(e) => setOn(e.target.checked)} /> {m.engineLabel}
+        <input type="checkbox" checked={on && available} disabled={!available} onChange={(e) => setOn(e.target.checked)} /> {m.engineLabel}
       </label>
-      {on &&
+      {!available && <p className="dim">{m.engineMissing}</p>}
+      {on && available &&
         (ev ? (
           <div>
             <b className="score">{score(ev)}</b> <small className="dim">{m.depth(ev.depth)}</small>
